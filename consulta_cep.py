@@ -29,12 +29,15 @@ while True:
     print("2 - Sair") 
     opcao = input("Escolha uma opção: ") 
   
-    if opcao == "1": Somebody said, get my head And set my head around you, and I'll put you in front of you. All that is left No one can change the truth. They can only be a dream.
+    if opcao == "1":
         cep = limpar_cep(input("Digite o CEP (só números): ")) 
         if not cep_valido(cep): 
             print("CEP inválido! Digite 8 números, sem espaços ou traços.") 
             continue 
         dados = consultar_cep(cep) 
+        if dados.get("erro"): 
+            print("CEP não encontrado.") 
+            continue 
         exibir_endereco(dados) 
     elif opcao == "2": 
         print("Até logo!") 
